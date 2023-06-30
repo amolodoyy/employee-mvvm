@@ -1,0 +1,24 @@
+﻿<Window x:Class="EmployeeMVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmployeeMVVM"
+        xmlns:views="clr-namespace:EmployeeMVVM.Views"
+        xmlns:viewmodels="clr-namespace:EmployeeMVVM.ViewModels"
+        mc:Ignorable="d"
+        Title="Employee Displayer" Height="450" Width="800">
+
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type viewmodels:EditEmployeeViewModel}">
+                <views:EditEmployeeView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:ManageCSVViewModel}">
+                <views:ManageCSVView/>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding CurrentViewModel}" />
+    </Grid>
+</Window>
